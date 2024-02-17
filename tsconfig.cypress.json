@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "jsx": "react",
+        "jsxFactory": "h",
+        "lib": ["es5", "dom"],
+        "types": ["node", "cypress-ct-stencil"],
+    },
+}

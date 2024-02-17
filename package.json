@@ -1,0 +1,40 @@
+{
+    "name": "cypress-ct-stencil",
+    "version": "0.0.6",
+    "description": "Framework Definition for StencilJS with Cypress Component Testing",
+    "exports": {
+        "node": "./dist/definition.js",
+        "default": "./dist/index.js"
+    },
+    "scripts": {
+        "build": "npm run build:definition && npm run build:mount",
+        "build:mount": "tsc --project tsconfig.mount.json",
+        "build:definition": "tsc --project tsconfig.definition.json"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/CoderIllusionist/cypress-ct-stencil.git"
+    },
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist",
+        "tsconfig.cypress.json"
+    ],
+    "devDependencies": {
+        "cypress": "^13.6.4",
+        "typescript": "^5.3.3"
+    },
+    "dependencies": {
+        "@cypress/mount-utils": "^4.0.0"
+    },
+    "keywords": [
+        "cypress",
+        "cypress stencil",
+        "stencil cypress",
+        "stencil component testing",
+        "StencilJS cypress",
+        "cypress-ct-stencil",
+        "cypress-ct"
+    ]
+}

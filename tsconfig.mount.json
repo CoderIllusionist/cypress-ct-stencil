@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "ES6",
+      "moduleResolution": "node",
+      "declaration": true,
+      "lib": ["DOM", "ES2017"],
+      "esModuleInterop": true,
+      "strict": true,
+      "types": ["cypress"],
+      "outDir": "dist",
+      "rootDir": ".",
+    },
+    "include": ["index.ts"]
+  }

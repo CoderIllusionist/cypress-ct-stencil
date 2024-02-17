@@ -1,0 +1,3 @@
+{
+ "extends": ["./tsconfig.definition.json", "./tsconfig.mount.json"]
+}
