@@ -1,6 +1,6 @@
 {
     "name": "cypress-ct-stencil",
-    "version": "0.0.6",
+    "version": "1.0.0",
     "description": "Framework Definition for StencilJS with Cypress Component Testing",
     "exports": {
         "node": "./dist/definition.js",
