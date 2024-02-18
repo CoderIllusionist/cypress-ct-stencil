@@ -27,7 +27,10 @@ describe('Mount with JSX', () => {
   });
 
   it('Should render multiple components via array', () => {
-    cy.mount([<my-component first="firstFirst" last="firstLast"></my-component>, <my-component first="secondFirst" last="secondLast"></my-component>]);
+    cy.mount([<my-component first="firstFirst" last="firstLast"></my-component>, <my-component first="secondFirst" last="secondLast"></my-component>], {
+      log: false,
+      waitUntilVisible: false,
+    });
     cy.get('my-component').should('have.length', 2);
 
     cy.get('my-component').first().invoke('prop', 'first').should('eq', 'firstFirst');
