@@ -57,6 +57,37 @@
     }
     ```
 
+## Options
+
+The two options can be set in the `mount` function itself as second parameter, or you can set a global env variable that acts as a default value.
+
+| Property         | envVariable               | Default value | Description                                                                                                                                                           |
+| ---------------- | ------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| waitUntilVisible | CtStencilWaitUntilVisible | `false`       | Recursively waits for all children to be visible (useful for when you have many slotted elements and visual testing). Does not work for elements in the `shadowRoot`. |
+| log              | CtStencilLog              | `false`       | Log when a node is about to mount                                                                                                                                     |
+
+#### Usage in test
+
+```tsx
+cy.mount(<my-component />, { waitUntilVisible: true, log: true });
+```
+
+## Example
+
+Example with Stencil and Cypress is located in the `example` directory of this repo.
+
+To install, navigate to the `example` directory and run:
+
+`npm install`
+
+Then run a Stencil build:
+
+`npm run build`
+
+Finally, open Cypress by running:
+
+`npx cypress open`
+
 ## Usage
 
 ### Typings
@@ -72,7 +103,7 @@ import { h } from '@stencil/core';
 
 it('Should mount correctly', () => {
     cy.mount(<my-component first="John" last="Doe"></my-component>);
-    cy.get('my-component').should('be.visible').should('exist');
+    cy.get('my-component').should('exist');
 });
 ```
 
@@ -95,8 +126,8 @@ it('Should support inline styling', () => {
 import { h } from '@stencil/core';
 
 it('Should support refs', () => {
-    cy.mount(<my-component ref={(ref) => cy.get(ref as any).as('ref')} first="Test" last="Event" />);
-    cy.get('@ref').should('be.visible').should('exist');
+    cy.mount(<my-component ref={(ref) => cy.get(ref as any).as('ref')} first="Test" last="Ref" />);
+    cy.get('@ref').should('exist');
 });
 ```
 
@@ -157,7 +188,3 @@ it('Should mount any html element with a string', () => {
     cy.get('p').should('have.text', 'This is a paragraph element!');
 });
 ```
-
-## Example
-
-Example with Stencil and Cypress is located in the `example` directory of this repo.
