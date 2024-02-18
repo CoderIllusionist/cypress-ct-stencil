@@ -51,6 +51,12 @@ export class MyComponent {
   }
 
   render() {
-    return [<div onClick={this.setCounter.bind(this)}>Hello, World! I'm {this.getText()}</div>, this.complexProp && <pre>{JSON.stringify(this.complexProp)}</pre>];
+    return [
+      <div onClick={this.setCounter.bind(this)}>
+        Hello, World! I'm {this.getText()}
+        <slot></slot>
+      </div>,
+      this.complexProp && <pre>{JSON.stringify(this.complexProp)}</pre>,
+    ];
   }
 }
